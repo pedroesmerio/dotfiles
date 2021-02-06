@@ -19,8 +19,8 @@ chsh -s $(which zsh)
 sudo apt install tmux -y
 
 # Install 'Oh-My-Zsh'
-echo '[*] Installing the oh-my-zsh! ...'
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#echo '[*] Installing the oh-my-zsh! ...'
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Install Zinit for sintax-hightligh, autosuggestions, and completions
 cd ~/
@@ -28,39 +28,65 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/i
 
 # Install the Dracula Dark Theme for gnome Terminal
 echo '[*] Installing the Dracula Dark Theme for gnome Terminal...'
-sh -c "$(curl -fsSL https://github.com/dracula/gnome-terminal/blob/master/install.sh)"
+cd ~/
+sudo apt-get install dconf-cli
+dracula_dir="${HOME}/gnome-terminal"
+if [ ! -d "${dracula_dir}" ]; then
+	echo "[*] Cloning https://github.com/dracula/gnome-terminal..."
+	git clone https://github.com/dracula/gnome-terminal
+else
+	echo "[*] Already exist gnome-terminal dir"
+	cd gnome-terminal
+	./install.sh
+fi
+echo "[*] Done!"
 
 # Clone the 'Spaceship' zsh's theme repository
+echo '[*] Installing the 'Spaceship' Theme for gnome Terminal...'
 cd ~/.oh-my-zsh/themes/
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+spaceship_dir="${HOME}/.oh-my-zsh/themes/spaceship.zsh-theme"
+if [ ! -d "${spaceship_dir}" ]; then
+	echo "[*] Cloning https://github.com/denysdovhan/spaceship-prompt.git.."
+	git clone https://github.com/denysdovhan/spaceship-prompt.git
+	mkdir -p "${spaceship_dir}"
+else
+	echo "[*] Already exist spaceship.zsh-theme dir"
+	cd spaceship.zsh-theme
+	./install.sh
+fi
+echo "[*] Done!"
+
 # Create a Symbol link in the 'Oh-My-Zsh' 
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+cd ~/.oh-my-zsh/themes
+echo "[*] Create a Symbol link in the 'Oh-My-Zsh'..."
+ln -s "/spaceship-prompt/spaceship.zsh-theme" "/spaceship.zsh-theme"
 # Copy .zshrc in working directory to nvim's config location ...
 echo '[*] Copying .zshrc  into -> HOME'
-cd ~/dotfiles-dracula
+cd ~/dotfiles-phme
 cp .zshrc ~/
 cd ~/
+echo "[*] Done!"
 
 
 # Install the 'FiraCode', a font for the Draculas icon template (https://github.com/tonsky/FiraCode/releases)
 echo "[*] Downloading 'FiraCode' patch font into ~/.local/share/fonts ..."
 fonts_dir="${HOME}/.local/share/fonts"
 if [ ! -d "${fonts_dir}" ]; then
-  echo "mkdir -p $fonts_dir"
-  mkdir -p "${fonts_dir}"
+	echo "mkdir -p $fonts_dir"
+	mkdir -p "${fonts_dir}"
 else
-  echo "Found fonts dir $fonts_dir"
+	echo "Found fonts dir $fonts_dir"
 fi
 
 for type in Bold Light Medium Regular Retina; do
-  file_path="${HOME}/.local/share/fonts/FiraCode-${type}.ttf"
-  file_url="https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true"
-  if [ ! -e "${file_path}" ]; then
-    echo "wget -O $file_path $file_url"
-    wget -O "${file_path}" "${file_url}"
-  else
-    echo "Found existing file $file_path"
-  fi;
+	file_path="${HOME}/.local/share/fonts/FiraCode-${type}.ttf"
+	file_url="https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true"
+	if [ ! -e "${file_path}" ]; then
+		echo "wget -O $file_path $file_url"
+		wget -O "${file_path}" "${file_url}"
+	else
+		echo "Found existing file $file_path"
+	fi;
 done
 
 echo "fc-cache -f"
@@ -123,10 +149,10 @@ cp init.vim ~/.config/nvim/
 echo -e "[+] Done, welcome to \033[1m\033[92mNeoVim\033[0m! Load the terminal hitting 'tmux' then 'vim'"
 
 # Clone the wallpaper repository in the respective directory and set the scrip to alternate the images
-cd ~/
-mkdir -p ~/Pictures/wallpapers
-cd ~/Pictures/wallpapers
-git clone https://github.com/pedroesmerio/wallpapers.git
-cd ~/dotfiles-phme
-cp .wallpapers ~/Pictures/wallpapers
-echo '[*] reload the system to see the new configuration!'
+#cd ~/
+#mkdir -p ~/Pictures/wallpapers
+#cd ~/Pictures/wallpapers
+#git clone https://github.com/pedroesmerio/wallpapers.git
+#cd ~/dotfiles-phme
+#cp .wallpapers ~/Pictures/wallpapers
+#echo '[*] reload the system to see the new configuration!'
