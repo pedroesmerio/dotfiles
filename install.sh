@@ -8,6 +8,10 @@ sudo apt install git -y
 echo '[*] Installing Curl...'
 sudo apt install curl -y
 
+# Install the yarn
+echo '[*] Installing yarn...'
+sudo apt install yarn -y
+
 # Install zsh
 echo '[*] Installing Zsh...'
 sudo apt install zsh -y
