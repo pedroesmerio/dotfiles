@@ -1,4 +1,4 @@
- #If you come from bash you might have to change your $PATH.
+#If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -9,12 +9,6 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -63,8 +57,7 @@ ZSH_THEME="spaceship"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
+# ZSH_CUSTOM=~/Projects/dotfiles-phme/.zshrc
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -81,12 +74,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
+
+#Ativa o temux quanto o term inicializa
+#if [[ ! $TERM =~ screen ]]; then
+#    exec tmux
+#fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -96,9 +89,16 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#  My Personal aliases
+alias zshconfig="vim ~/.zshrc"
+alias tmuxconfig="vim ~/.tmux.conf"
+alias vimconfig="vim ~/.vimrc"
+alias omzconfig="vim ~/.oh-my-zsh"
+alias mongoconfig="vim /etc/mongod.conf"
+alias mux="tmuxinator"
+alias cl="clear"
+alias cdh="clear && cd ~"
+alias ks="tmux kill-server"
 
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
@@ -135,3 +135,12 @@ autoload -Uz _zinit
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
+
+. $HOME/.asdf/asdf.sh
+
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit
+
