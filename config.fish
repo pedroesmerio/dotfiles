@@ -9,17 +9,16 @@ alias mongoconfig="nvim /etc/mongod.conf"
 alias mux="tmuxinator"
 alias cl="clear"
 alias nv="nvim"
+alias lv="lvim"
 alias cdh="clear && cd ~"
 alias ks="tmux kill-server"
+alias lg="lazygit"
 
 function on_exit --on-event fish_exit
+
     echo fish is now exiting
 end
 
-export EDITOR='nvim'
-
-
-# ~/.config/fish/config.fish
+export EDITOR='lvim'
 
 starship init fish | source
-
