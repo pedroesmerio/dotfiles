@@ -1,11 +1,4 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
+--[[ lvim is the global options object Linters should be filled in as strings with either a global executable or a path to an executable ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
@@ -28,12 +21,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- edit a default keymapping
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
--- Adding one line to load the LazyGit window
-lvim.builtin.which_key.mappings["g"] = {
-  name = "Git",
-  g = {"<cmd>LazyGit<cr>", "Load LazyGit"},
-}
-
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
@@ -53,8 +40,39 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 lvim.builtin.lualine.options.theme = "dracula"
+
 lvim.builtin.lualine.options.section_separators = { left = "", right = "" }
 lvim.builtin.lualine.sections.lualine_a = {"mode"}
+
+lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
+
+-- Adding one line to load the LazyGit window
+lvim.builtin.which_key.mappings["g"] = {
+  name = "Git",
+  g = {"<cmd>LazyGit<cr>", "Load LazyGit"},
+  j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+  k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+  l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+  p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+  r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+  R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+  s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  u = {
+    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+    "Undo Stage Hunk",
+  },
+  o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+  c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+  C = {
+    "<cmd>Telescope git_bcommits<cr>",
+    "Checkout commit(for current file)",
+  },
+  d = {
+    "<cmd>Gitsigns diffthis HEAD<cr>",
+    "Git Diff",
+  },
+}
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
@@ -117,19 +135,6 @@ lvim.builtin.alpha.dashboard.section.header.val = {
 '⠀⠀⠾⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠀⠀⠿⠿⠿⠀⠀⠼⠿⠿⠁⠀⠀⠀⠀⠿⠿⠟⠀⠴⠿⠿⠟⠁⠀⠀⠀⠘⠿⠿⠿⠄⠀⠀⠀⠀⠀⠈⠿⠿⠁⠀⠀⠀⠀⠀⠀⠀⠸⠿⠿⠇⠀⠀⠿⠿⠿⠀⠀⠀⠀⠼⠿⠿⠃⠀⠀⠀⠸⠿⠿⠇⠀⠀⠀';
 '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 lvim.builtin.alpha.dashboard.section.footer.val = {"Personal IDE configuration of pedroesmerio"}
 
@@ -225,6 +230,22 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({ "*" }, {
+        names    = true,         -- "Name" codes, see https://www.w3schools.com/colors/colors_hex.asp   Blue, HotPink, OldLace, Plum, LightGreen, Coral
+        RGB      = true,         -- #RGB hex codes                                                      #f0f #FAB
+        RRGGBB   = true,         -- #RRGGBB hex codes                                                   #ffff00 #FF00FF
+        RRGGBBAA = true,         -- #RRGGBBAA hex codes                                                 #ffff00ff #AbCdEf
+        rgb_fn   = true,         -- CSS rgb() and rgba() functions                                      rgb(100,200,50) rgba(255,255,255,1.0) rgb(100%, 0%, 0%)
+        hsl_fn   = true,         -- CSS hsl() and hsla() functions                                      hsl(120,100%,50%) hsla(20,100%,40%,0.7)
+        css      = true,         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn   = true,         -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        mode     = 'background'; -- Set the display mode.
+    })
+    end,
   },
 }
 
