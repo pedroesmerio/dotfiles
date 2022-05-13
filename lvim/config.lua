@@ -42,14 +42,14 @@ lvim.builtin.telescope.defaults.mappings = {
 lvim.builtin.lualine.options.theme = "dracula"
 
 lvim.builtin.lualine.options.section_separators = { left = "", right = "" }
-lvim.builtin.lualine.sections.lualine_a = {"mode"}
+lvim.builtin.lualine.sections.lualine_a = { "mode" }
 
 lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
 
 -- Adding one line to load the LazyGit window
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
-  g = {"<cmd>LazyGit<cr>", "Load LazyGit"},
+  g = { "<cmd>LazyGit<cr>", "Load LazyGit" },
   j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
   k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
   l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -86,6 +86,13 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 }
 
+lvim.builtin.which_key.mappings["z"] = {
+  name = "ZenMode",
+  a = { "<cmd>TZAtaraxis<cr>", "Ataraxis Mode" },
+  m = { "<cmd>TZFocus<cr>", "Focus Mode" },
+  f = { "<cmd>TZMinimalist<cr>", "Minimalist Mode" },
+}
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 
@@ -99,44 +106,44 @@ lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.alpha.dashboard.section.header.val = {
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⠀⠀⠀⠀⠀⠀⠀⠀⣰⠟⠁⡈⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷⡄⠀⠀⠀⠀⠀⢀⡼⠋⠀⠀⢰⡌⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣦⡀⠀⠀⣠⡟⠁⠀⣠⣤⣼⣷⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣦⣴⡟⠀⢸⣾⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣿⣿⣿⣿⣿⡿⠿⠀⢸⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⠶⠟⠋⣱⡟⢿⣿⡿⣷⡄⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⢠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣤⣌⡀⠀⢰⣿⡄⠈⠻⡇⠹⣿⣷⣤⡀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⢸⣿⣿⡟⢋⣥⠶⢋⣡⣤⣼⣿⣿⣿⣿⣷⣝⠳⣾⣿⣷⣄⠀⠁⠀⢻⣿⣿⣿⣄⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⣼⣿⠟⣠⣿⣷⣿⣿⣿⣿⣿⣿⣷⣶⣤⣀⣉⡁⠈⠻⣿⣿⣷⣄⠀⠘⠿⢿⣿⣿⣧⡀⠀                          ';
-'                        ⠀⠀⢀⣤⣾⣫⣶⣿⣿⣿⡿⠿⠿⠛⠿⠿⣿⣿⣿⣿⣿⣷⣬⡙⠲⢬⣿⣿⣿⣷⡀⠀⠀⠈⠙⢿⣷⡀                          ';
-'                        ⣰⣿⣿⠟⣿⣿⠟⣫⠥⠒⣊⣑⠒⠒⠶⠶⠭⣿⣿⣿⣿⣿⣿⣶⣄⠹⣿⣍⠛⠿⣆⠀⠀⠀⠀⠈⢣⠀                          ';
-'                        ⠘⣿⣧⣾⡫⣖⣯⣷⣾⣭⣤⣀⠀⠀⣴⣶⣶⣶⣾⡿⠿⣿⣿⣿⣿⣷⣽⣿⣷⡀⠈⠃⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠈⠻⢿⣿⢿⣿⠯⢡⣦⣶⣿⢿⣶⢬⡙⠿⣿⣿⣿⣷⣦⣌⡉⠛⢿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠘⢿⠀⠻⡇⠀⠀⠙⢿⡜⣿⠘⣿⣦⡈⢻⣿⣿⣿⣿⣿⣦⣄⠈⠻⣿⣿⣷⡀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡹⣧⡙⢿⣿⡀⣿⣿⡛⠿⡷⣮⡙⠳⡀⠈⢻⣿⡇⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⡘⣿⣾⣿⡇⢹⣿⣿⡀⠈⠊⠻⣆⠀⠀⠀⢻⡗⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⡿⢻⣿⡇⢸⣿⣿⣧⢨⣷⣄⢹⣧⠀⠀⠀⠇⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠲⢤⣮⣁⣸⣿⡇⣼⣿⣿⡟⣼⣿⣿⣾⡟⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠛⠒⠛⠉⢹⡿⣿⠟⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⢸⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
-'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
-'⠀⠀⠀⠀⠀⣶⣶⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣶⣶⣶⠀⠀⠀⠀⠀⠀⠀⣰⣶⣶⡖⠀⠰⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
-'⠀⠀⠀⠀⢠⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡄⠀⠀⠀⠀⠀⣰⣿⣿⠟⠀⠀⠀⠉⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
-'⠀⠀⠀⠀⣸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢠⣤⣤⣤⣤⠀⢀⣤⣤⡄⢀⣠⣤⣤⣤⣄⡀⠀⠀⢤⣤⣤⣄⠀⠀⠀⠀⣠⣤⣤⡤⠀⠀⢸⣿⣿⣇⠀⠀⠀⠀⣰⣿⣿⠏⠀⠀⣠⣤⣤⣤⡤⠀⢠⣤⣤⡄⣠⣤⣤⣤⣤⣄⠀⣀⣤⣤⣤⣤⣄⠀⠀⠀';
-'⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠾⢿⣿⣿⡟⠀⠀⣿⣿⣿⣿⠿⠿⠿⣿⣿⣷⠀⠀⠈⢿⣿⣿⣆⠀⢠⣾⣿⣿⠟⠀⠀⠀⠈⣿⣿⣿⠀⠀⠀⣰⣿⣿⡏⠀⠀⠀⠿⢿⣿⣿⡇⠀⢸⣿⣿⣿⡿⠿⠿⢿⣿⣿⣿⣿⠿⠿⢿⣿⣿⣷⠀⠀';
-'⠀⠀⠀⢰⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⠃⠀⢠⣿⣿⡟⠀⠀⠀⠀⢸⣿⣿⠃⠀⠀⠀⠻⣿⣿⣶⣿⣿⠟⠁⠀⠀⠀⠀⠀⢻⣿⣿⡆⠀⣴⣿⣿⠏⠀⠀⠀⠀⠀⣾⣿⣿⠀⠀⢸⣿⣿⡏⠀⠀⠀⢠⣿⣿⡟⠀⠀⠀⠀⣿⣿⣿⠀⠀';
-'⠀⠀⠀⣼⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⣸⣿⣿⠃⠀⠀⠀⠀⣿⣿⡿⠀⠀⠀⠀⢀⣽⣿⣿⣿⡁⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣧⣼⣿⣿⠃⠀⠀⠀⠀⠀⢰⣿⣿⡏⠀⠀⣾⣿⣿⠁⠀⠀⠀⣸⣿⣿⠇⠀⠀⠀⢸⣿⣿⡇⠀⠀';
-'⠀⠀⢀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡇⠀⠀⣿⣿⣿⠀⠀⠀⠀⢠⣿⣿⡇⠀⠀⠀⣠⣿⣿⡿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⣸⣿⣿⠇⠀⢠⣿⣿⡟⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⣼⣿⣿⠃⠀⠀';
-'⠀⠀⢸⣿⣿⣷⣶⣶⣶⣶⣶⣶⣶⠆⠀⣾⣿⣿⠁⠀⢸⣿⣿⡇⠀⠀⠀⠀⣸⣿⣿⠁⠀⢠⣾⣿⣿⠟⠀⠘⣿⣿⣷⡄⠀⠀⠀⠀⠀⠀⢸⣿⣿⡿⠃⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⣸⣿⣿⠇⠀⠀⠀⢰⣿⣿⡏⠀⠀⠀⢀⣿⣿⡿⠀⠀⠀';
-'⠀⠀⠾⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠀⠀⠿⠿⠿⠀⠀⠼⠿⠿⠁⠀⠀⠀⠀⠿⠿⠟⠀⠴⠿⠿⠟⠁⠀⠀⠀⠘⠿⠿⠿⠄⠀⠀⠀⠀⠀⠈⠿⠿⠁⠀⠀⠀⠀⠀⠀⠀⠸⠿⠿⠇⠀⠀⠿⠿⠿⠀⠀⠀⠀⠼⠿⠿⠃⠀⠀⠀⠸⠿⠿⠇⠀⠀⠀';
-'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⠀⠀⠀⠀⠀⠀⠀⠀⣰⠟⠁⡈⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷⡄⠀⠀⠀⠀⠀⢀⡼⠋⠀⠀⢰⡌⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣦⡀⠀⠀⣠⡟⠁⠀⣠⣤⣼⣷⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣦⣴⡟⠀⢸⣾⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣿⣿⣿⣿⣿⡿⠿⠀⢸⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⠶⠟⠋⣱⡟⢿⣿⡿⣷⡄⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⢠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣤⣌⡀⠀⢰⣿⡄⠈⠻⡇⠹⣿⣷⣤⡀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⢸⣿⣿⡟⢋⣥⠶⢋⣡⣤⣼⣿⣿⣿⣿⣷⣝⠳⣾⣿⣷⣄⠀⠁⠀⢻⣿⣿⣿⣄⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⣼⣿⠟⣠⣿⣷⣿⣿⣿⣿⣿⣿⣷⣶⣤⣀⣉⡁⠈⠻⣿⣿⣷⣄⠀⠘⠿⢿⣿⣿⣧⡀⠀                          ';
+  '                        ⠀⠀⢀⣤⣾⣫⣶⣿⣿⣿⡿⠿⠿⠛⠿⠿⣿⣿⣿⣿⣿⣷⣬⡙⠲⢬⣿⣿⣿⣷⡀⠀⠀⠈⠙⢿⣷⡀                          ';
+  '                        ⣰⣿⣿⠟⣿⣿⠟⣫⠥⠒⣊⣑⠒⠒⠶⠶⠭⣿⣿⣿⣿⣿⣿⣶⣄⠹⣿⣍⠛⠿⣆⠀⠀⠀⠀⠈⢣⠀                          ';
+  '                        ⠘⣿⣧⣾⡫⣖⣯⣷⣾⣭⣤⣀⠀⠀⣴⣶⣶⣶⣾⡿⠿⣿⣿⣿⣿⣷⣽⣿⣷⡀⠈⠃⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠈⠻⢿⣿⢿⣿⠯⢡⣦⣶⣿⢿⣶⢬⡙⠿⣿⣿⣿⣷⣦⣌⡉⠛⢿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠘⢿⠀⠻⡇⠀⠀⠙⢿⡜⣿⠘⣿⣦⡈⢻⣿⣿⣿⣿⣿⣦⣄⠈⠻⣿⣿⣷⡀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡹⣧⡙⢿⣿⡀⣿⣿⡛⠿⡷⣮⡙⠳⡀⠈⢻⣿⡇⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⡘⣿⣾⣿⡇⢹⣿⣿⡀⠈⠊⠻⣆⠀⠀⠀⢻⡗⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⡿⢻⣿⡇⢸⣿⣿⣧⢨⣷⣄⢹⣧⠀⠀⠀⠇⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠲⢤⣮⣁⣸⣿⡇⣼⣿⣿⡟⣼⣿⣿⣾⡟⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠛⠒⠛⠉⢹⡿⣿⠟⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⢸⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                          ';
+  '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
+  '⠀⠀⠀⠀⠀⣶⣶⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣶⣶⣶⠀⠀⠀⠀⠀⠀⠀⣰⣶⣶⡖⠀⠰⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
+  '⠀⠀⠀⠀⢠⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡄⠀⠀⠀⠀⠀⣰⣿⣿⠟⠀⠀⠀⠉⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
+  '⠀⠀⠀⠀⣸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢠⣤⣤⣤⣤⠀⢀⣤⣤⡄⢀⣠⣤⣤⣤⣄⡀⠀⠀⢤⣤⣤⣄⠀⠀⠀⠀⣠⣤⣤⡤⠀⠀⢸⣿⣿⣇⠀⠀⠀⠀⣰⣿⣿⠏⠀⠀⣠⣤⣤⣤⡤⠀⢠⣤⣤⡄⣠⣤⣤⣤⣤⣄⠀⣀⣤⣤⣤⣤⣄⠀⠀⠀';
+  '⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠾⢿⣿⣿⡟⠀⠀⣿⣿⣿⣿⠿⠿⠿⣿⣿⣷⠀⠀⠈⢿⣿⣿⣆⠀⢠⣾⣿⣿⠟⠀⠀⠀⠈⣿⣿⣿⠀⠀⠀⣰⣿⣿⡏⠀⠀⠀⠿⢿⣿⣿⡇⠀⢸⣿⣿⣿⡿⠿⠿⢿⣿⣿⣿⣿⠿⠿⢿⣿⣿⣷⠀⠀';
+  '⠀⠀⠀⢰⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⠃⠀⢠⣿⣿⡟⠀⠀⠀⠀⢸⣿⣿⠃⠀⠀⠀⠻⣿⣿⣶⣿⣿⠟⠁⠀⠀⠀⠀⠀⢻⣿⣿⡆⠀⣴⣿⣿⠏⠀⠀⠀⠀⠀⣾⣿⣿⠀⠀⢸⣿⣿⡏⠀⠀⠀⢠⣿⣿⡟⠀⠀⠀⠀⣿⣿⣿⠀⠀';
+  '⠀⠀⠀⣼⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⣸⣿⣿⠃⠀⠀⠀⠀⣿⣿⡿⠀⠀⠀⠀⢀⣽⣿⣿⣿⡁⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣧⣼⣿⣿⠃⠀⠀⠀⠀⠀⢰⣿⣿⡏⠀⠀⣾⣿⣿⠁⠀⠀⠀⣸⣿⣿⠇⠀⠀⠀⢸⣿⣿⡇⠀⠀';
+  '⠀⠀⢀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡇⠀⠀⣿⣿⣿⠀⠀⠀⠀⢠⣿⣿⡇⠀⠀⠀⣠⣿⣿⡿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⣸⣿⣿⠇⠀⢠⣿⣿⡟⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⣼⣿⣿⠃⠀⠀';
+  '⠀⠀⢸⣿⣿⣷⣶⣶⣶⣶⣶⣶⣶⠆⠀⣾⣿⣿⠁⠀⢸⣿⣿⡇⠀⠀⠀⠀⣸⣿⣿⠁⠀⢠⣾⣿⣿⠟⠀⠘⣿⣿⣷⡄⠀⠀⠀⠀⠀⠀⢸⣿⣿⡿⠃⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⣸⣿⣿⠇⠀⠀⠀⢰⣿⣿⡏⠀⠀⠀⢀⣿⣿⡿⠀⠀⠀';
+  '⠀⠀⠾⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠀⠀⠿⠿⠿⠀⠀⠼⠿⠿⠁⠀⠀⠀⠀⠿⠿⠟⠀⠴⠿⠿⠟⠁⠀⠀⠀⠘⠿⠿⠿⠄⠀⠀⠀⠀⠀⠈⠿⠿⠁⠀⠀⠀⠀⠀⠀⠀⠸⠿⠿⠇⠀⠀⠿⠿⠿⠀⠀⠀⠀⠼⠿⠿⠃⠀⠀⠀⠸⠿⠿⠇⠀⠀⠀';
+  '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀';
 }
 
-lvim.builtin.alpha.dashboard.section.footer.val = {"Personal IDE configuration of pedroesmerio"}
+lvim.builtin.alpha.dashboard.section.footer.val = { "Personal IDE configuration of pedroesmerio" }
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -220,31 +227,45 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
-  {"lunarvim/colorschemes"},
-  {"folke/tokyonight.nvim"},
-  {"dracula/vim"},
-  {"kdheepak/lazygit.nvim"},
-  {"pantharshit00/vim-prisma"},
-  {"styled-components/vim-styled-components"},
-  {"github/copilot.vim"},
+  { "lunarvim/colorschemes" },
+  { "folke/tokyonight.nvim" },
+  { "alvan/vim-closetag" },
+  { "dracula/vim" },
+  { "kdheepak/lazygit.nvim" },
+  { "pantharshit00/vim-prisma" },
+  { "styled-components/vim-styled-components" },
+  { "github/copilot.vim" },
+  { "terryma/vim-multiple-cursors" },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
   {
+    "Pocco81/TrueZen.nvim",
+    cmd = {
+      "TZAtaraxis",
+      "TZMinimalist",
+      "TZFocus",
+    },
+    config = function()
+      require "custom.plugins.truezen"
+    end,
+
+  },
+  {
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({ "*" }, {
-        names    = true,         -- "Name" codes, see https://www.w3schools.com/colors/colors_hex.asp   Blue, HotPink, OldLace, Plum, LightGreen, Coral
-        RGB      = true,         -- #RGB hex codes                                                      #f0f #FAB
-        RRGGBB   = true,         -- #RRGGBB hex codes                                                   #ffff00 #FF00FF
-        RRGGBBAA = true,         -- #RRGGBBAA hex codes                                                 #ffff00ff #AbCdEf
-        rgb_fn   = true,         -- CSS rgb() and rgba() functions                                      rgb(100,200,50) rgba(255,255,255,1.0) rgb(100%, 0%, 0%)
-        hsl_fn   = true,         -- CSS hsl() and hsla() functions                                      hsl(120,100%,50%) hsla(20,100%,40%,0.7)
-        css      = true,         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-        css_fn   = true,         -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        names    = true, -- "Name" codes, see https://www.w3schools.com/colors/colors_hex.asp   Blue, HotPink, OldLace, Plum, LightGreen, Coral
+        RGB      = true, -- #RGB hex codes                                                      #f0f #FAB
+        RRGGBB   = true, -- #RRGGBB hex codes                                                   #ffff00 #FF00FF
+        RRGGBBAA = true, -- #RRGGBBAA hex codes                                                 #ffff00ff #AbCdEf
+        rgb_fn   = true, -- CSS rgb() and rgba() functions                                      rgb(100,200,50) rgba(255,255,255,1.0) rgb(100%, 0%, 0%)
+        hsl_fn   = true, -- CSS hsl() and hsla() functions                                      hsl(120,100%,50%) hsla(20,100%,40%,0.7)
+        css      = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn   = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
         mode     = 'background'; -- Set the display mode.
-    })
+      })
     end,
   },
 }
@@ -253,3 +274,5 @@ lvim.plugins = {
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+
+require("luasnip/loaders/from_vscode").load { paths = { "~/.config/lvim/snippets/vscode-es7-javascript-react-snippets" } }
