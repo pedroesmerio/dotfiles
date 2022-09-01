@@ -306,6 +306,13 @@ lvim.plugins = {
   },
 }
 
+-- Load the tailwindcss in the LSP
+require("lvim.lsp.manager").setup "tailwindcss"
+
+-- Loads the vscode es7 snippets in the luasnip
+-- require("luasnip/loaders/from_vscode").load { paths = { "~/.dotfiles/snippets/vscode-react-javascript-snippets/" } }
+require("luasnip/loaders/from_vscode").load { paths = { "~/.dotfiles/snippets/" } }
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
