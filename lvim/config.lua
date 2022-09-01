@@ -9,6 +9,9 @@ lvim.transparent_window = true
 lvim.format_on_save = true
 vim.opt.relativenumber = true
 
+
+lvim.builtin.treesitter.rainbow.enable = false
+
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
@@ -42,6 +45,7 @@ lvim.builtin.telescope.defaults.mappings = {
 lvim.builtin.lualine.options.theme = "dracula"
 
 lvim.builtin.lualine.options.section_separators = { left = "", right = "" }
+
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
 
 lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
@@ -229,6 +233,37 @@ lvim.plugins = {
   { "lunarvim/colorschemes" },
   { "folke/tokyonight.nvim" },
   { "alvan/vim-closetag" },
+    "p00f/nvim-ts-rainbow",
+    config = function()
+      require'nvim-treesitter.configs'.setup{
+        rainbow = {
+          -- Setting colors
+          colors = {
+            "#FFD700",
+            "#DA70D6",
+            "#179fff",
+            "#ffd90080",
+            "#CC66CC80",
+            "#87CEFA80",
+            "#ffd90080",
+            "#CC66CC80",
+            "#87CEFA80",
+          },
+          -- Term colors
+          termcolors = {
+            -- Term colors here
+            "Red",
+            "Green",
+            "Yellow",
+            "Blue",
+            "Magenta",
+            "Cyan",
+            "White",
+          },
+        }
+      }
+    end,
+  },
   { "dracula/vim" },
   { "kdheepak/lazygit.nvim" },
   { "pantharshit00/vim-prisma" },
