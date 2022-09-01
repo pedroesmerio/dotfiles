@@ -93,8 +93,6 @@ lvim.builtin.which_key.mappings["t"] = {
 lvim.builtin.which_key.mappings["z"] = {
   name = "ZenMode",
   a = { "<cmd>TZAtaraxis<cr>", "Ataraxis Mode" },
-  m = { "<cmd>TZFocus<cr>", "Focus Mode" },
-  f = { "<cmd>TZMinimalist<cr>", "Minimalist Mode" },
   f = { "<cmd>TZFocus<cr>", "Focus Mode" },
   m = { "<cmd>TZMinimalist<cr>", "Minimalist Mode" },
 }
@@ -106,7 +104,7 @@ lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.show_icons.git = 1
 
 -- dashboard configuration for alpha plugin
 lvim.builtin.alpha.active = true
