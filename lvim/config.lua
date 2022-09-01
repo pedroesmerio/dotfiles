@@ -233,6 +233,13 @@ lvim.plugins = {
   { "lunarvim/colorschemes" },
   { "folke/tokyonight.nvim" },
   { "alvan/vim-closetag" },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+  {
     "p00f/nvim-ts-rainbow",
     config = function()
       require'nvim-treesitter.configs'.setup{
