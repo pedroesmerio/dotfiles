@@ -95,6 +95,8 @@ lvim.builtin.which_key.mappings["z"] = {
   a = { "<cmd>TZAtaraxis<cr>", "Ataraxis Mode" },
   m = { "<cmd>TZFocus<cr>", "Focus Mode" },
   f = { "<cmd>TZMinimalist<cr>", "Minimalist Mode" },
+  f = { "<cmd>TZFocus<cr>", "Focus Mode" },
+  m = { "<cmd>TZMinimalist<cr>", "Minimalist Mode" },
 }
 
 -- TODO: User Config for predefined plugins
@@ -282,7 +284,7 @@ lvim.plugins = {
       "TZFocus",
     },
     config = function()
-      require "custom.plugins.truezen"
+      require ("custom.plugins.truezen")
     end,
 
   },
