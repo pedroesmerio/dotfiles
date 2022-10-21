@@ -1,15 +1,37 @@
 --[[ lvim is the global options object Linters should be filled in as strings with either a global executable or a path to an executable ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
+-- Enable powershell as your default shell
+-- vim.opt.shell = "pwsh.exe -NoLogo"
+-- vim.opt.shellcmdflag =
+-- "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+-- vim.cmd [[
+-- 		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- 		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- 		set shellquote= shellxquote=
+--   ]]
+
+-- Set a compatible clipboard manager
+-- vim.g.clipboard = {
+--   copy = {
+--     ["+"] = "win32yank.exe -i --crlf",
+--     ["*"] = "win32yank.exe -i --crlf",
+--   },
+--   paste = {
+--     ["+"] = "win32yank.exe -o --lf",
+--     ["*"] = "win32yank.exe -o --lf",
+--   },
+-- }
+
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "dracula"
+lvim.colorscheme = "tokyonight"
 lvim.transparent_window = true
 lvim.format_on_save = true
 vim.opt.relativenumber = true
 
-
+-- Enable brackets colorscheme with rainbow
 lvim.builtin.treesitter.rainbow.enable = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -27,6 +49,8 @@ lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
+
+-- lvim.builtin.terminal.shell = "pwsh.exe -NoLogo"
 lvim.builtin.telescope.defaults.mappings = {
   -- for input mode
   i = {
@@ -89,6 +113,16 @@ lvim.builtin.which_key.mappings["t"] = {
   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 }
+
+-- nvim-tree has some performance issues on windows, see kyazdani42/nvim-tree.lua#549
+-- lvim.builtin.nvimtree.setup.diagnostics.enable = nil
+-- lvim.builtin.nvimtree.setup.filters.custom = nil
+-- lvim.builtin.nvimtree.setup.git.enable = nil
+-- lvim.builtin.nvimtree.setup.update_cwd = nil
+-- lvim.builtin.nvimtree.setup.update_focused_file.update_cwd = nil
+-- lvim.builtin.nvimtree.setup.view.side = "left"
+-- lvim.builtin.nvimtree.setup.renderer.highlight_git = nil
+-- lvim.builtin.nvimtree.setup.renderer.icons.show.git = nil
 
 lvim.builtin.which_key.mappings["z"] = {
   name = "ZenMode",
@@ -242,7 +276,7 @@ lvim.plugins = {
   {
     "p00f/nvim-ts-rainbow",
     config = function()
-      require'nvim-treesitter.configs'.setup{
+      require 'nvim-treesitter.configs'.setup {
         rainbow = {
           -- Setting colors
           colors = {
@@ -289,7 +323,7 @@ lvim.plugins = {
       "TZFocus",
     },
     config = function()
-      require ("custom.plugins.truezen")
+      require("custom.plugins.truezen")
     end,
 
   },
@@ -334,7 +368,7 @@ require("lvim.lsp.manager").setup "tailwindcss"
 
 -- Loads the vscode es7 snippets in the luasnip
 -- require("luasnip/loaders/from_vscode").load { paths = { "~/.dotfiles/snippets/vscode-react-javascript-snippets/" } }
-require("luasnip/loaders/from_vscode").load { paths = { "~/.dotfiles/snippets/" } }
+require("luasnip/loaders/from_vscode").load { paths = { "C:/Users/pedro.esmerio/.dotfiles/snippets" } }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
