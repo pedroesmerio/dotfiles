@@ -22,7 +22,7 @@ format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [shell]
 fish_indicator = "🐟"
-powershell_indicator = "🛸"
+powershell_indicator = "🔥"
 unknown_indicator = "mystery shell"
 style = "cyan bold"
 disabled = false
@@ -48,16 +48,16 @@ format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
 conflicted = "👾 conflicts(${count})"  
-ahead = "🔜 ${count} ahead "
-behind = "🔙 ${count} behind "
-diverged = "🔙 ${count} behind 🔛 🔜 (${count}) ahead"
-stashed = "📦 ${count} stashed "
-modified = "modifies ▲${count} "
-staged = " staged ⬆${count} "
-renamed = "📛${count} renamed "
-deleted = "🗑️${count} deleted "
+ahead = "🔜 $count "
+behind = "🔙 $count "
+diverged = " 🔙 $count 🔛 $count 🔜 "
+stashed = "📦 $count stashed "
+modified = "modifies ▲ $count "
+staged = " staged ⬆ $count "
+renamed = "📛 renamed $count "
+deleted = "🗑️ deleted $count "
 style = "bright-white "
-format = "$all_status$ahead_behind "
+format = "$all_status $ahead_behind "
 
 [git_metrics]
 added_style = "bold blue"
@@ -111,7 +111,6 @@ heuristic = false
 [azure]
 disabled = false
 format = "on [$symbol($subscription)]($style) "
-symbol = "ﴃ "
 style = "blue bold"
 
 [time]
