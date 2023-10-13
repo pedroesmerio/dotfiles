@@ -1,0 +1,117 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.minimap.enabled": false,
+  "terminal.integrated.fontSize": 13,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 26,
+  "editor.rulers": [75, 120],
+  "editor.tabSize": 2,
+  "editor.lineNumbers": "relative",
+  "vim.easymotion": true,
+  "vim.useCtrlKeys": true,
+  "vim.handleKeys": {
+    "<C-d>": false,
+    "<C-b>": false,
+    "<C-f>": false,
+    "<C-r>": false,
+    "<C-g>": false
+  },
+  // FORMATTER
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.largeFileOptimizations": false,
+
+  // Configurações do JS e TS
+  "typescript.tsserver.log": "off",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "extensions.ignoreRecommendations": true,
+  "json.maxItemsComputed": 150000,
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  // Configurações ao salvar o arquivo e ESLint
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    // OrganizeImports
+    "source.organizeImports": false,
+    // For ESLint
+    "source.fixAll.eslint": true,
+    // For TSLint
+    "source.fixAll.tslint": true,
+    // For Stylelint
+    "source.fixAll.stylelint": true
+  },
+  "eslint.packageManager": "npm",
+  "eslint.validate": [
+    "vue",
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "files.associations": {
+    ".sequelizerc": "javascript"
+  },
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "Windows PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Windows PowerShell": {
+      "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    }
+  },
+  "explorer.confirmDelete": false,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.guides.bracketPairs": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.accessibilitySupport": "off",
+  "explorer.confirmDragAndDrop": false,
+  "totalTypeScript.hideAllTips": false,
+  "totalTypeScript.hideBasicTips": false,
+  "workbench.startupEditor": "none",
+  "vscodeGoogleTranslate.preferredLanguage": "English",
+  "chatgpt.chromiumPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "chatgpt.authenticationType": "Google Authentication",
+  "git.openRepositoryInParentFolders": "always",
+  "workbench.colorTheme": "Dracula",
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "security.workspace.trust.untrustedFiles": "open",
+  "diffEditor.ignoreTrimWhitespace": false
+}
